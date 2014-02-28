@@ -1,5 +1,5 @@
 sagecell.require(["notebook/js/widgets/widget"], function(WidgetManager){
-    var CameraView = IPython.DOMWidgetView.extend({
+    var WebCameraView = IPython.DOMWidgetView.extend({
         render: function(){
             // based on https://developer.mozilla.org/en-US/docs/WebRTC/taking_webcam_photos
             var video        = $('<video>')[0];
@@ -58,6 +58,6 @@ sagecell.require(["notebook/js/widgets/widget"], function(WidgetManager){
             }, false);
         },
     });
-    WidgetManager.register_widget_view('CameraView', CameraView);
+    WidgetManager.register_widget_view('WebCameraView', WebCameraView);
 
 });

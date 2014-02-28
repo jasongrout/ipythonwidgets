@@ -7,8 +7,8 @@ from PIL import Image
 import StringIO
 from numpy import array, ndarray
 
-class Camera(DOMWidget):
-    _view_name = Unicode('CameraView', sync=True)
+class WebCamera(DOMWidget):
+    _view_name = Unicode('WebCameraView', sync=True)
     imageurl = Unicode('', sync=True)
     image = Instance(ndarray)
 
