@@ -1,5 +1,5 @@
-from IPython.html.widgets import DOMWidget
-from IPython.utils.traitlets import Unicode, Bytes, Instance
+from IPython.html.widgets import Widget, DOMWidget
+from IPython.utils.traitlets import Unicode, Bytes, Instance, Tuple
 from IPython.display import display
 
 import base64
@@ -16,3 +16,7 @@ class WebCamera(DOMWidget):
         head, data = new.split(',', 1)
         im = Image.open(StringIO.StringIO(base64.b64decode(data)))
         self.image = array(im)
+
+class Link(Widget):
+    _view_name = Unicode('LinkView', sync=True)
+    objects = Tuple(Tuple(Instance(Widget), Unicode))

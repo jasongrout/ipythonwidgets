@@ -60,4 +60,14 @@ sagecell.require(["notebook/js/widgets/widget"], function(WidgetManager){
     });
     WidgetManager.register_widget_view('WebCameraView', WebCameraView);
 
+    var LinkView = IPython.WidgetView.extend({
+        render: function(){
+            console.log('render');
+        },
+        update: function() {
+            console.log('update');
+        }
+    }
+    WidgetManager.register_widget_view('LinkView', LinkView);
+
 });
