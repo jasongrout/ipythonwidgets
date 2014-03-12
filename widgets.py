@@ -19,4 +19,4 @@ class WebCamera(DOMWidget):
 
 class Link(Widget):
     _view_name = Unicode('LinkView', sync=True)
-    objects = Tuple(Tuple(Instance(Widget), Unicode))
+    widgets = Any(sync=True) # TODO: eventful list or tuple

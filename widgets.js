@@ -62,12 +62,27 @@ sagecell.require(["notebook/js/widgets/widget"], function(WidgetManager){
 
     var LinkView = IPython.WidgetView.extend({
         render: function(){
-            console.log('render');
+            _.each(this.model.get('widgets'), function(element, index, list) {
+                var model = element[0], attr = element[1];
+                model.on('change', function() {this.update_value(element)}, this);
+            }, this);
+            this.update_value(this.model.get('widgets')[0]);
+            // TODO: register for any destruction handlers
+        },
+        update_value: function(trigger) {
+            if (this.updating) {return;}
+            var model = trigger[0];
+            var attr = trigger[1];
+            var new_value = model.get(attr);
+            this.updating = true;
+            _.each(_.without(this.model.get('widgets'), trigger), function(element, index, list) {
+                element[0].set(element[1], new_value);
+                element[0].save_changes();
+            }, this);
+            this.updating = false;
         },
         update: function() {
-            console.log('update');
+            // todo: handle changes to the list of objects
         }
-    }
-    WidgetManager.register_widget_view('LinkView', LinkView);
-
-});
+    });
+    IPython.WidgetManager.register_widget_view('LinkView', LinkView);
