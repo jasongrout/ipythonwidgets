@@ -86,3 +86,4 @@ sagecell.require(["notebook/js/widgets/widget"], function(WidgetManager){
         }
     });
     IPython.WidgetManager.register_widget_view('LinkView', LinkView);
+});
