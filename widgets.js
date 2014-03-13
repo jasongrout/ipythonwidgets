@@ -76,7 +76,7 @@ sagecell.require(["notebook/js/widgets/widget"], function(WidgetManager){
         },
         update_bindings: function(oldlist, newlist) {
             var that = this
-            this.do_diff(oldlist, newlist
+            this.do_diff(oldlist, newlist,
                          function(elt) {elt[0].off('change:'+elt[1], null, that);},
                          function(elt) {elt[0].on('change:'+elt[1], 
                                                   function(model, value, options) {
