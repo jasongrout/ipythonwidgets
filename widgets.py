@@ -1,5 +1,5 @@
 from IPython.html.widgets import Widget, DOMWidget
-from IPython.utils.traitlets import Unicode, Bytes, Instance, Tuple
+from IPython.utils.traitlets import Unicode, Bytes, Instance, Any
 from IPython.display import display
 
 import base64
