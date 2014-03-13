@@ -80,17 +80,18 @@ sagecell.require(["notebook/js/widgets/widget"], function(WidgetManager){
                          function(elt) {elt[0].off('change:'+elt[1], null, that);},
                          function(elt) {elt[0].on('change:'+elt[1], 
                                                   function(model, value, options) {
-                                                      that.update_value(elt, value)
+                                                      that.update_value(elt)
                                                   }, that);})
         },
-        update_value: function(elt, value) {
+        update_value: function(elt) {
             if (this.updating) {return;}
             var model = elt[0];
             var attr = elt[1];
+            var new_value = model.get(attr);
             this.updating = true;
             _.each(_.without(this.model.get('widgets'), elt), 
                    function(element, index, list) {
-                       element[0].set(element[1], value);
+                       element[0].set(element[1], new_value);
                        element[0].save_changes();
                    }, this);
             this.updating = false;
