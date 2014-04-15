@@ -1,4 +1,5 @@
-sagecell.require(["notebook/js/widgets/widget"], function(WidgetManager){
+// assume the widget.js code has been loaded
+sagecell.require([], function(WidgetManager){
     var WebCameraView = IPython.DOMWidgetView.extend({
         render: function(){
             // based on https://developer.mozilla.org/en-US/docs/WebRTC/taking_webcam_photos
