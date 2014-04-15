@@ -1,5 +1,5 @@
 // assume the widget.js code has been loaded
-sagecell.require([], function(WidgetManager){
+sagecell.require([], function(){
     var WebCameraView = IPython.DOMWidgetView.extend({
         render: function(){
             // based on https://developer.mozilla.org/en-US/docs/WebRTC/taking_webcam_photos
@@ -59,7 +59,7 @@ sagecell.require([], function(WidgetManager){
             }, false);
         },
     });
-    WidgetManager.register_widget_view('WebCameraView', WebCameraView);
+    IPython.WidgetManager.register_widget_view('WebCameraView', WebCameraView);
 
     var LinkView = IPython.WidgetView.extend({
         render: function(){
